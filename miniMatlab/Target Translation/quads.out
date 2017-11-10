@@ -1,0 +1,140 @@
+
+
+================================================================================
+
+Symbol Table::: Global                                         Parent: null
+--------------------------------------------------------------------------------
+Name            Type            Init Val    Size    Offset  Nested Table
+--------------------------------------------------------------------------------
+test            int                         4       0       null
+t00             int             226         4       4       null
+m               int                         4       8       null
+t01             int             10          4       12      null
+d               double                      8       16      null
+t02             double          10.3        8       24      null
+add             int                         4       32      add
+main            void                        0       36      main
+--------------------------------------------------------------------------------
+
+
+
+================================================================================
+
+Symbol Table::: add                                            Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Init Val    Size    Offset  Nested Table
+--------------------------------------------------------------------------------
+a               int                         4       0       null
+b               int                         4       4       null
+retVal          int                         4       8       null
+t00             int             10          4       12      null
+x               ptr(int)                    4       16      null
+y               int                         4       20      null
+--------------------------------------------------------------------------------
+
+
+
+================================================================================
+
+Symbol Table::: main                                           Parent: Global
+--------------------------------------------------------------------------------
+Name            Type            Init Val    Size    Offset  Nested Table
+--------------------------------------------------------------------------------
+i               int                         4       0       null
+a               arr[15, int][1]             64      4       null
+t00             int             15          4       68      null
+v               int                         4       72      null
+t01             int             15          4       76      null
+d               double                      8       80      null
+t02             int             1           4       88      null
+t03             int             20          4       92      null
+t04             int                         4       96      null
+t05             int                         4       100     null
+t06             int                         4       104     null
+t07             int                         4       108     null
+t08             int                         4       112     null
+t09             int             1           4       116     null
+t10             int                         4       120     null
+t11             int                         4       124     null
+t12             int                         4       128     null
+t13             int                         4       132     null
+t14             int                         4       136     null
+t15             int             2           4       140     null
+t16             int             1           4       144     null
+t17             int                         4       148     null
+t18             int                         4       152     null
+t19             int                         4       156     null
+t20             int                         4       160     null
+t21             int             1           4       164     null
+t22             int                         4       168     null
+t23             int                         4       172     null
+t24             int                         4       176     null
+--------------------------------------------------------------------------------
+
+==============================
+Quad Translation
+------------------------------
+0:	t00 = 226
+1:	test = t00
+2:	t01 = 10
+3:	m = t01
+4:	t02 = 10.3
+5:	d = t02
+6:	 = call , 
+7:	add = call , 
+8:	t00 = 10
+9:	a = t00
+10:	 = call , 
+11:	main = call , 
+12:	t00 = 15
+13:	t01 = 15
+14:	v = t01
+15:	t02 = 1
+16:	i = t02
+17:	t03 = 20
+18:	t04 = t03 * 4
+19:	t05 = a[t04]
+20:	t06 = double2int2double(i}
+21:	if t06 < t05 goto 25
+22:	goto 28
+23:	t07 = i
+24:	i = i + 1
+25:	t08 = i
+26:	i = i + 1
+27:	goto 17
+28:	t09 = 1
+29:	t10 = double2int2double(i}
+30:	t11 = t10 - t09
+31:	i = t11
+32:	t12 = i * 4
+33:	t13 = a[t12]
+34:	t14 = double2int2double(t13}
+35:	if t14 < v goto 28
+36:	goto 37
+37:	t15 = 2
+38:	i = t15
+39:	goto 42
+40:	if v == 0 goto 48
+41:	goto 45
+42:	if i == 0 goto 48
+43:	goto 40
+44:	goto 48
+45:	t16 = 1
+46:	i = t16
+47:	goto 48
+48:	t17 = i * 4
+49:	t18 = a[t17]
+50:	t19 = double2int2double(v}
+51:	if t19 > t18 goto 53
+52:	goto 56
+53:	t20 = i
+54:	i = i - 1
+55:	goto 48
+56:	t21 = 1
+57:	t22 = t21 * 4
+58:	a[t22] = i
+59:	t23 = i * 4
+60:	t24 = a[t23]
+61:	v = t24
+62:	ret 
+------------------------------
